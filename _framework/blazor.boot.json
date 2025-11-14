@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ThinkDrive",
   "resources": {
-    "hash": "sha256-R2yfoqNBh9JWFB26WPaC2Vi+fIzsZG8Y+ZJMb5Oesps=",
+    "hash": "sha256-rnWmeCwagRaNIsU+5yonTXUbPqXl1mE0AwC9Nk2Fxa8=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.c0qb8tkqbn.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Forms.4pi680o7gk.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
@@ -63,7 +63,7 @@
       "System.Xml.XDocument.vv4pg4jvzd.wasm": "System.Xml.XDocument.wasm",
       "System.t4d4s3f398.wasm": "System.wasm",
       "System.Private.CoreLib.0g2rw43nuz.wasm": "System.Private.CoreLib.wasm",
-      "ThinkDrive.36zf6br70k.wasm": "ThinkDrive.wasm",
+      "ThinkDrive.y0wac7pkgl.wasm": "ThinkDrive.wasm",
       "dotnet.native.td5o3pw0sl.js": "dotnet.native.js",
       "dotnet.native.h4lminhv5n.wasm": "dotnet.native.wasm",
       "dotnet.js": "dotnet.js",
@@ -149,7 +149,7 @@
       "System.Xml.Linq.62mgoxb9g2.wasm": "sha256-UgDQgumqZj6p9gp1AxxwuF7FY0ittV25c4qrMW9q7XY=",
       "System.Xml.XDocument.vv4pg4jvzd.wasm": "sha256-+3SlDJYDdc4lXEjSJad37pAH0sKgpRPXp4ECI08vsYI=",
       "System.t4d4s3f398.wasm": "sha256-fVP2BxRRKpBA0PmBbKxmO45bXDrAXVn1GthlDclLbeU=",
-      "ThinkDrive.36zf6br70k.wasm": "sha256-y6E0bcF+zmUxmDekvcXirJn32DMC5bQWV6iRlWtFItA="
+      "ThinkDrive.y0wac7pkgl.wasm": "sha256-XqdQ/8zXro3pyEGjSnioRYTx50GvMF4qaUFF2XHQB0s="
     }
   },
   "cacheBootResources": true,

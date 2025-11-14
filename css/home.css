@@ -122,7 +122,7 @@
     text-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-/* Optional: distinct icon colors per card */
+/* Distinct icon colors per card */
 .students-card .icon-accent {
     color: #ffe600;
 }
@@ -138,6 +138,7 @@
 .quiz-card .icon-accent {
     color: #b266ff;
 }
+
 .hero-title {
     font-size: 2.2rem;
     font-weight: 700;
@@ -164,7 +165,7 @@
     transform: scale(1.2);
 }
 
-/* Search input */
+/* Enhanced search input */
 .search-input {
     width: 100%;
     max-width: 420px;
@@ -219,3 +220,54 @@
         box-shadow: 0 8px 20px rgba(11,27,51,.16);
     }
 
+/* ========================= */
+/* Mobile Responsive Styles  */
+/* ========================= */
+@media (max-width: 768px) {
+    .home-hero {
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .hero-left, .hero-right {
+        flex: 1 1 100%;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .hero-actions {
+        margin-top: 16px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .home-highlights {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 24px auto;
+    }
+
+    .highlight-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .card-content h5 {
+        font-size: 1.1rem;
+    }
+
+    .card-content p, .card-content ul {
+        font-size: 0.9rem;
+    }
+}

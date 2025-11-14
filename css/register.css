@@ -10,17 +10,21 @@
 .register-title {
     font-size: 1.6rem;
     margin-bottom: 8px;
+    font-weight: 700;
+    color: #0b1b33;
 }
 
 .register-subtext {
     color: #666;
     margin-bottom: 24px;
+    font-size: 0.95rem;
 }
 
 .step-tabs {
     display: flex;
     gap: 12px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
 }
 
 .step-tab {
@@ -29,10 +33,16 @@
     background: #eee;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
+    .step-tab:hover {
+        transform: translateY(-2px);
+    }
+
     .step-tab.active {
-        background: #007bff;
+        background: linear-gradient(270deg, #4facfe, #00f2fe);
         color: #fff;
     }
 
@@ -52,13 +62,21 @@
     border: 1px solid #ccc;
     font-size: 1rem;
     width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+    .form-input:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 3px rgba(79,172,254,.18);
+        outline: none;
+    }
 
 .checkbox-row {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-top: 12px;
+    font-size: 0.95rem;
 }
 
 .form-actions {
@@ -72,26 +90,93 @@
         justify-content: space-between;
     }
 
-.btn-primary {
-    background: #007bff;
-    color: #fff;
-    border: none;
+.btn-primary,
+.btn-secondary {
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(270deg, #4facfe, #00f2fe);
+    color: #fff;
 }
 
 .btn-secondary {
-    background: #6c757d;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4);
     color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
 }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(11,27,51,.16);
+    }
 
 .payment-instructions {
     margin-top: 32px;
     padding: 16px;
+    border-radius: 12px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* ========================= */
+/* Mobile Responsive Styles  */
+/* ========================= */
+@media (max-width: 768px) {
+    .register-container {
+        margin: 16px auto;
+        padding: 20px;
+    }
+
+    .register-title {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .register-subtext {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .step-tabs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .step-tab {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .payment-instructions {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,111 @@
+﻿/* === Global Mobile Reset === */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 0;
+        margin: 0;
+    }
+
+    .layout-root {
+        padding: 0.5rem;
+    }
+
+    h2, h4, h5 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    /* === Navigation === */
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+    }
+
+    .header-left {
+        margin-bottom: 0.5rem;
+    }
+
+    .header-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-btn {
+        display: block;
+        width: 100%;
+        margin: 0.25rem 0;
+        padding: 0.75rem;
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    /* === Forms === */
+    .form-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-input, textarea, select {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 6px;
+    }
+
+    .btn-primary, .btn-secondary, .btn-danger {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    /* === Tables → Cards === */
+    table {
+        display: none; /* hide tables on mobile */
+    }
+
+    .student-card, .quiz-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+        .student-card p, .quiz-card p {
+            margin: 0.25rem 0;
+        }
+
+    /* === Hero Images === */
+    .hero-preview-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    /* === Alerts === */
+    .alert-success, .alert-error, .alert-info {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+        border-radius: 6px;
+    }
+
+    /* === Dashboard Cards === */
+    .summary-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .summary-card {
+        padding: 1rem;
+        border-radius: 8px;
+        background: #f9f9f9;
+        text-align: center;
+    }
+}

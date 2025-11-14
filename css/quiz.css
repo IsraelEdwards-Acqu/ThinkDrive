@@ -12,6 +12,9 @@
     margin-bottom: 16px;
     display: flex;
     align-items: center;
+    gap: .5rem;
+    font-weight: 700;
+    color: #0b1b33;
 }
 
 .quiz-loading {
@@ -28,6 +31,8 @@
     color: #856404;
     display: flex;
     align-items: center;
+    gap: .5rem;
+    font-weight: 500;
 }
 
 .question-card {
@@ -35,7 +40,7 @@
     border: 1px solid #eee;
     border-radius: 12px;
     background: #f9f9f9;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
     .question-card.correct {
@@ -95,11 +100,12 @@
     text-align: left;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
     .option-btn:hover {
         background: #f0f0f0;
+        transform: translateY(-2px);
     }
 
 .quiz-progress {
@@ -107,6 +113,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: .95rem;
+    color: #333;
 }
 
 .progress-bar {
@@ -119,21 +127,74 @@
 
 .progress-fill {
     height: 100%;
-    background: #007bff;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
     transition: width 0.3s ease;
 }
 
 .quiz-complete {
     text-align: center;
     margin-top: 32px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #0b1b33;
 }
 
 .restart-btn {
     padding: 10px 20px;
     border-radius: 8px;
-    background: #007bff;
+    background: linear-gradient(270deg, #4facfe, #00f2fe);
     color: #fff;
     border: none;
     font-size: 1rem;
     cursor: pointer;
+    margin-top: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .restart-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(11,27,51,.16);
+    }
+
+/* ========================= */
+/* Mobile Responsive Styles  */
+/* ========================= */
+@media (max-width: 768px) {
+    .quiz-container {
+        margin: 16px auto;
+        padding: 16px;
+    }
+
+    .quiz-title {
+        font-size: 1.4rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .question-card {
+        padding: 16px;
+    }
+
+    .option-btn {
+        font-size: 0.95rem;
+        padding: 10px 14px;
+    }
+
+    .quiz-progress {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
+
+    .quiz-complete {
+        font-size: 1rem;
+    }
+
+    .restart-btn {
+        width: 100%;
+    }
 }
