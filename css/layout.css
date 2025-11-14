@@ -42,17 +42,26 @@
     background: transparent;
     border: 1px solid rgba(255,255,255,0.2);
     color: white;
-    padding: 6px 14px;
+    padding: 8px;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1.2rem; /* larger for icons */
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
     .nav-btn:hover {
         background: rgba(255,255,255,0.1);
+        transform: scale(1.1);
     }
 
+.app-footer {
+    background: #0b1b33;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
 .main-content {
     flex: 1;
     max-width: 1200px;

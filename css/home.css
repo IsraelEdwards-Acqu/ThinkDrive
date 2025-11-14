@@ -271,3 +271,69 @@
         font-size: 0.9rem;
     }
 }
+.app-footer {
+    background: #0b1b33;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 32px;
+}
+.hero-bg {
+    background: url('/images/hero-driving.jpg') center/cover no-repeat;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+    .hero-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(11,27,51,0.55); /* overlay for readability */
+        border-radius: 16px;
+    }
+
+.hero-left, .hero-right {
+    position: relative;
+    z-index: 1; /* ensures content sits above overlay */
+}
+
+.app-footer {
+    background: #0b1b33;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 32px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .hero-bg {
+        flex-direction: column;
+        padding: 16px;
+        background-position: top;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .lead {
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .hero-actions {
+        margin-top: 16px;
+    }
+
+    .hero-right {
+        margin-top: 20px;
+    }
+}
+
