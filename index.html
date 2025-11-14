@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThinkDrive</title>
+    <base href="/" />
+    <link rel="icon" href="/favicon.ico" />
+    <link href="/manifest.webmanifest" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <meta name="theme-color" content="#0b1b33" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+    <!-- App Styles -->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/school.css" />
+    <link rel="stylesheet" href="/css/videos.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/quiz.css" />
+    <link rel="stylesheet" href="/css/schools.css" />
+</head>
+<body>
+    <!-- Branded ThinkDrive Loader -->
+    <div id="loader" class="thinkdrive-loader">
+        <div class="loader-graphic">
+            <div class="ring" style="--i:0"></div>
+            <div class="ring" style="--i:1"></div>
+            <div class="td-logo">th!nk<br>drive</div>
+        </div>
+        <div class="loader-message">Loading ThinkDrive…</div>
+    </div>
+
+    <!-- Blazor mount point -->
+    <div id="app">Loading...</div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Local Interop Scripts -->
+    <script src="js/supabaseInterop.js"></script>
+    <script src="js/videoInterop.js"></script>
+    <script src="js/confettiInterop.js"></script>
+    <script src="js/mapInterop.js"></script>
+    <script src="js/appLoader.js"></script>
+    <script src="js/storageInterop.js"></script>
+
+    <!-- Supabase Config -->
+    <script>
+        // Replace with your actual Supabase project URL and anon key
+        const supabaseUrl = "https://duocrvjmpeovvsaeseek.supabase.co";
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR1b2NydmptcGVvdnZzYWVzZWVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MTg0ODIsImV4cCI6MjA3Mjk5NDQ4Mn0.fCPXA5H0XwV97AIdO0Ewn1xnruP_HssInwjY9Oq9iOs";
+
+        // Initialize Supabase and inject into storageInterop
+        window.supabaseInterop.init(supabaseUrl, supabaseAnonKey);
+    </script>
+
+    <!-- Dev-only: Unregister stale service workers -->
+    <script>
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(regs => {
+                    regs.forEach(r => {
+                        try { r.unregister(); console.log('Unregistered SW:', r); } catch (e) { console.warn(e); }
+                    });
+                }).catch(e => console.warn('SW unregister failed', e));
+            }
+        }
+    </script>
+
+    <!-- Image preview helper -->
+    <script>
+        function previewHeroImage() {
+            const input = document.getElementById("heroImageInput");
+            const nameEl = document.getElementById("heroFileName");
+            const previewEl = document.getElementById("heroPreview");
+
+            if (input && input.files && input.files.length > 0) {
+                const file = input.files[0];
+                nameEl.textContent = file.name;
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewEl.src = e.target.result;
+                    previewEl.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                nameEl.textContent = "No file";
+                previewEl.src = "";
+                previewEl.style.display = "none";
+            }
+        }
+    </script>
+
+    <!-- Loader fade-out helper -->
+    <script>
+        window.appLoader = {
+            hide: function () {
+                const loader = document.getElementById("loader");
+                if (loader) {
+                    loader.style.transition = "opacity 0.6s ease";
+                    loader.style.opacity = "0";
+                    setTimeout(() => loader.remove(), 600);
+                }
+            }
+        };
+    </script>
+
+    <!-- Blazor Runtime -->
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+</html>

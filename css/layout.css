@@ -1,0 +1,61 @@
+﻿.layout-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f9f9fb;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.app-header {
+    background: #0b1b33;
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+}
+
+.brand {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 1.1rem;
+}
+
+.header-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+    .nav-btn:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 16px;
+}

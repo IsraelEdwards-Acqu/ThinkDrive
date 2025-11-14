@@ -1,0 +1,97 @@
+﻿.register-container {
+    max-width: 1000px;
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+.register-title {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.register-subtext {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.step-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.step-tab {
+    padding: 8px 16px;
+    border: none;
+    background: #eee;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    .step-tab.active {
+        background: #007bff;
+        color: #fff;
+    }
+
+.step-panel {
+    margin-top: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.form-input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.form-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+    .form-actions.justify-between {
+        justify-content: space-between;
+    }
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.payment-instructions {
+    margin-top: 32px;
+    padding: 16px;

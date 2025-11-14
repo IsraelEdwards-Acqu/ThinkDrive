@@ -1,0 +1,221 @@
+﻿.home-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 28px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+.hero-left {
+    flex: 1 1 60%;
+}
+
+.hero-right {
+    flex: 1 1 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.hero-actions {
+    margin-top: 24px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.home-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.highlight-card {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .highlight-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+.card-content {
+    display: grid;
+    place-items: center;
+    gap: 0.75rem;
+}
+
+    .card-content h5 {
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+        opacity: 0.95;
+        margin: 0;
+    }
+
+    .card-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.95rem;
+        opacity: 0.95;
+    }
+
+.icon-accent {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Optional: distinct icon colors per card */
+.students-card .icon-accent {
+    color: #ffe600;
+}
+
+.owners-card .icon-accent {
+    color: #ff4d4d;
+}
+
+.lessons-card .icon-accent {
+    color: #00ffcc;
+}
+
+.quiz-card .icon-accent {
+    color: #b266ff;
+}
+.hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.icon-hero {
+    font-size: 2.5rem;
+    color: #4facfe;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.icon-btn {
+    font-size: 1.2rem;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover .icon-btn,
+.btn-secondary:hover .icon-btn {
+    transform: scale(1.2);
+}
+
+/* Search input */
+.search-input {
+    width: 100%;
+    max-width: 420px;
+    padding: .65rem .8rem;
+    border-radius: 10px;
+    border: 1px solid rgba(11,27,51,0.12);
+    background: #fff;
+    outline: none;
+    transition: box-shadow .2s ease, border-color .2s ease;
+    font-size: 1rem;
+}
+
+    .search-input:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 3px rgba(79,172,254,.18);
+    }
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: .75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: .65rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(270deg, #4facfe, #00f2fe);
+}
+
+.btn-secondary {
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4);
+}
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(11,27,51,.16);
+    }
+

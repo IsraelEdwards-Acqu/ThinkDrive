@@ -1,0 +1,235 @@
+﻿.schools-header {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.schools-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+}
+
+.search-input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .filter-btn:hover {
+        background: #e2e6ea;
+    }
+
+    .filter-btn.active {
+        background: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+
+.sort-dropdown {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.schools-loading {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.skeleton-card {
+    height: 180px;
+    background: #eee;
+    border-radius: 14px;
+}
+
+.alert-warning {
+    max-width: 800px;
+    margin: 32px auto;
+    padding: 16px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 12px;
+    color: #856404;
+}
+
+.schools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.school-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+    .school-card:hover {
+        box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+
+    .school-card h5 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #0b1b33;
+    }
+
+.school-meta {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.school-card p {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #333;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.hero-preview {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.school-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+    .school-actions .btn-success,
+    .school-actions .btn-danger,
+    .school-actions .btn-secondary {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .school-actions .btn-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .school-actions .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .school-actions .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .school-actions button:hover {
+        opacity: 0.9;
+    }     
+        
+.confirm-overlay
+
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.confirm-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+    .confirm-box h3 {
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .confirm-box p {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+.confirm-actions button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #c0392b;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+    color: white;
+}
