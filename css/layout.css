@@ -1,103 +1,97 @@
-﻿.layout-root {
+﻿/* Root layout ensures footer stays at bottom */
+.layout-root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: #f9f9fb;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
-.app-header {
-    background: #0b1b33;
-    color: white;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-}
-
-.brand {
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    font-size: 1.1rem;
-}
-
-.header-nav {
-    display: flex;
-    gap: 12px;
-}
-
-.nav-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    padding: 8px;
-    border-radius: 6px;
-    font-size: 1.2rem; /* larger for icons */
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-    .nav-btn:hover {
-        background: rgba(255,255,255,0.1);
-        transform: scale(1.1);
-    }
-
-.app-footer {
-    background: #0b1b33;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
 .main-content {
-    flex: 1;
+    flex: 1; /* pushes footer down */
     max-width: 1200px;
     margin: 24px auto;
     padding: 0 16px;
 }
 
-/* ========================= */
-/* Mobile Responsive Styles  */
-/* ========================= */
+/* Header */
+.app-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left .logo {
+    height: 32px;
+    margin-right: 8px;
+}
+
+.brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #0b1b33;
+}
+
+/* Footer */
+.app-footer-nav {
+    background: #fff; /* clean white footer */
+    border-top: 1px solid #eee;
+    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Nav buttons */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #0b1b33;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+    .nav-btn i {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .nav-btn.active,
+    .nav-btn:hover {
+        color: #007bff; /* brand blue highlight */
+        transform: translateY(-2px);
+    }
+
+.logout-btn {
+    color: #dc3545; /* red for logout */
+}
+
+/* Responsive behavior */
 @media (max-width: 768px) {
-    .app-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 12px 16px;
-    }
-
-    .header-left {
-        margin-bottom: 12px;
-    }
-
-    .header-nav {
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-    }
-
-    .nav-btn {
-        width: 100%;
-        text-align: left;
-        padding: 10px 14px;
-        font-size: 1rem;
-    }
-
     .main-content {
-        margin: 16px auto;
-        padding: 0 12px;
+        padding-bottom: 70px; /* prevent overlap with fixed footer */
     }
 }

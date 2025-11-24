@@ -1,0 +1,89 @@
+﻿.short-card {
+    position: relative;
+    height: 100vh; /* full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.shorts-feed {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.short-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.heart-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 4rem;
+    color: red;
+    animation: pop 0.8s ease forwards;
+}
+
+@keyframes pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+.comment-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+    .comment-overlay.open {
+        right: 0;
+    }
+
+
+.short-meta {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.short-actions {
+    position: absolute;
+    right: 20px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.action-btn {
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}

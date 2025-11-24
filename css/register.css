@@ -1,99 +1,106 @@
 ﻿.register-container {
     max-width: 1000px;
     margin: 32px auto;
-    padding: 32px;
-    border-radius: 16px;
+    padding: 36px;
+    border-radius: 20px; /* ✅ smoother */
     background: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* ✅ premium shadow */
 }
 
 .register-title {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
     font-weight: 700;
     color: #0b1b33;
 }
 
 .register-subtext {
     color: #666;
-    margin-bottom: 24px;
-    font-size: 0.95rem;
+    margin-bottom: 28px;
+    font-size: 1rem;
 }
 
+/* Step tabs */
 .step-tabs {
     display: flex;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 14px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .step-tab {
-    padding: 8px 16px;
+    padding: 10px 18px;
     border: none;
-    background: #eee;
-    border-radius: 8px;
+    background: #f1f3f5;
+    border-radius: 12px; /* ✅ smoother */
     cursor: pointer;
-    font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
     .step-tab:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .step-tab.active {
-        background: linear-gradient(270deg, #4facfe, #00f2fe);
+        background: linear-gradient(270deg, #007bff, #00c6ff); /* ✅ brand blue gradient */
         color: #fff;
     }
 
+/* Step panel */
 .step-panel {
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
+/* Form grid */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    gap: 18px;
 }
 
 .form-input {
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 12px 16px;
+    border-radius: 12px; /* ✅ smoother */
     border: 1px solid #ccc;
     font-size: 1rem;
     width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
     .form-input:focus {
-        border-color: #4facfe;
-        box-shadow: 0 0 0 3px rgba(79,172,254,.18);
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,.18);
         outline: none;
     }
 
+/* Checkbox */
 .checkbox-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 12px;
+    gap: 10px;
+    margin-top: 14px;
     font-size: 0.95rem;
 }
 
+/* Actions */
 .form-actions {
-    margin-top: 24px;
+    margin-top: 28px;
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 14px;
 }
 
     .form-actions.justify-between {
         justify-content: space-between;
     }
 
+/* Buttons */
 .btn-primary,
 .btn-secondary {
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 22px;
+    border-radius: 12px; /* ✅ smoother */
     font-size: 1rem;
     cursor: pointer;
     border: none;
@@ -101,33 +108,35 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(270deg, #4facfe, #00f2fe);
+    background: linear-gradient(270deg, #007bff, #00c6ff); /* ✅ brand blue gradient */
     color: #fff;
 }
 
 .btn-secondary {
-    background: linear-gradient(270deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(270deg, #ffd700, #ff9a00); /* ✅ brand gold/orange gradient */
     color: #fff;
 }
 
     .btn-primary:hover,
     .btn-secondary:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         box-shadow: 0 6px 16px rgba(11,27,51,.16);
     }
 
+/* Payment instructions */
 .payment-instructions {
-    margin-top: 32px;
-    padding: 16px;
-    border-radius: 12px;
+    margin-top: 36px;
+    padding: 18px;
+    border-radius: 16px; /* ✅ smoother */
     background: #f9f9f9;
     border: 1px solid #eee;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* ========================= */
@@ -136,11 +145,11 @@
 @media (max-width: 768px) {
     .register-container {
         margin: 16px auto;
-        padding: 20px;
+        padding: 22px;
     }
 
     .register-title {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 
@@ -151,7 +160,7 @@
 
     .step-tabs {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
 
     .step-tab {
@@ -161,12 +170,12 @@
 
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
     }
 
     .form-actions {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
     }
 
     .btn-primary,

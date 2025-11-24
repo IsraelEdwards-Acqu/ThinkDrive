@@ -1,339 +1,222 @@
-﻿.home-hero {
+﻿/* Hero Section */
+.home-hero {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
-    max-width: 1200px;
-    margin: 32px auto;
-    padding: 28px;
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.05);
-}
-
-.hero-left {
-    flex: 1 1 60%;
-}
-
-.hero-right {
-    flex: 1 1 35%;
-    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    color: #fff;
+    border-radius: 16px; /* ✅ round the whole hero container */
+    overflow: hidden; /* ensures children respect rounded corners */
+}
+
+/* Hero left card */
+.hero-left {
+    flex: 1 1 50%;
+    max-width: 600px;
+    background: rgba(255,255,255,0.1); /* subtle translucent background */
+    border-radius: 12px; /* ✅ rounded edges */
+    padding: 1.5rem;
+}
+
+/* Hero right card */
+.hero-right {
+    flex: 1 1 40%;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.1); /* subtle translucent background */
+    border-radius: 12px; /* ✅ rounded edges */
+    padding: 1rem;
 }
 
 .hero-image {
+    max-width: 300px;
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    border-radius: 12px; /* ✅ rounded image edges */
 }
-
-.hero-actions {
-    margin-top: 24px;
-}
-
-.search-input {
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    margin-bottom: 16px;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.btn-primary {
-    background: #007bff;
-    color: #fff;
-}
-
-.btn-secondary {
-    background: #6c757d;
-    color: #fff;
-}
-
-.home-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 32px auto;
-    padding: 0 16px;
-}
-
-.highlight-card {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
-    color: #fff;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-    .highlight-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-
-.card-content {
-    display: grid;
-    place-items: center;
-    gap: 0.75rem;
-}
-
-    .card-content h5 {
-        font-size: 1.25rem;
-        margin: 0;
-    }
-
-    .card-content p {
-        font-size: 0.95rem;
-        opacity: 0.95;
-        margin: 0;
-    }
-
-    .card-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 0.95rem;
-        opacity: 0.95;
-    }
-
-.icon-accent {
-    font-size: 2rem;
-    color: #fff;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
-/* Distinct icon colors per card */
-.students-card .icon-accent {
-    color: #ffe600;
-}
-
-.owners-card .icon-accent {
-    color: #ff4d4d;
-}
-
-.lessons-card .icon-accent {
-    color: #00ffcc;
-}
-
-.quiz-card .icon-accent {
-    color: #b266ff;
-}
-
 .hero-title {
-    font-size: 2.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: .75rem;
     margin-bottom: 1rem;
 }
 
-.icon-hero {
-    font-size: 2.5rem;
-    color: #4facfe;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+.hero-lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
 }
 
-.icon-btn {
-    font-size: 1.2rem;
-    color: #fff;
-    transition: transform 0.2s ease;
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.btn-primary:hover .icon-btn,
-.btn-secondary:hover .icon-btn {
-    transform: scale(1.2);
-}
-
-/* Enhanced search input */
 .search-input {
-    width: 100%;
-    max-width: 420px;
-    padding: .65rem .8rem;
-    border-radius: 10px;
-    border: 1px solid rgba(11,27,51,0.12);
-    background: #fff;
-    outline: none;
-    transition: box-shadow .2s ease, border-color .2s ease;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: none;
     font-size: 1rem;
+    width: 100%;
 }
 
-    .search-input:focus {
-        border-color: #4facfe;
-        box-shadow: 0 0 0 3px rgba(79,172,254,.18);
-    }
-
-/* Action buttons */
 .action-buttons {
     display: flex;
-    gap: .75rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    gap: 1rem;
 }
 
+/* Wrap the lead + logo side by side */
+.hero-lead {
+    display: inline-block;
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+.hero-logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Optional: make lead + logo appear on same line */
+.hero-lead,
+.hero-logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+    .hero-logo img {
+        max-height: 60px; /* adjust size */
+        margin-left: 1rem;
+    }
+/* Buttons */
 .btn-primary,
 .btn-secondary {
-    padding: .65rem 1rem;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     cursor: pointer;
     border: none;
-    color: #fff;
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: all 0.3s ease;
 }
 
+/* Primary button: Gold (logo accent) */
 .btn-primary {
-    background: linear-gradient(270deg, #4facfe, #00f2fe);
+    background: #ffd700; /* gold */
+    color: #0b1b33; /* dark navy text */
 }
 
+    .btn-primary:hover {
+        background: #ffc107; /* slightly darker gold */
+    }
+
+/* Secondary button: Blue (logo accent) */
 .btn-secondary {
-    background: linear-gradient(270deg, #ff9a9e, #fad0c4);
+    background: #007bff; /* brand blue */
+    color: #fff; /* white text */
 }
 
-    .btn-primary:hover,
     .btn-secondary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(11,27,51,.16);
+        background: #0056b3; /* darker blue on hover */
     }
 
-/* ========================= */
-/* Mobile Responsive Styles  */
-/* ========================= */
-@media (max-width: 768px) {
-    .home-hero {
-        flex-direction: column;
-        padding: 16px;
-        gap: 16px;
-    }
-
-    .hero-left, .hero-right {
-        flex: 1 1 100%;
-    }
-
-    .hero-title {
-        font-size: 1.6rem;
-        text-align: center;
-    }
-
-    .hero-actions {
-        margin-top: 16px;
-    }
-
-    .action-buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .home-highlights {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin: 24px auto;
-    }
-
-    .highlight-card {
-        padding: 1.5rem 1rem;
-    }
-
-    .card-content h5 {
-        font-size: 1.1rem;
-    }
-
-    .card-content p, .card-content ul {
-        font-size: 0.9rem;
-    }
+.hero-right {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.app-footer {
-    background: #0b1b33;
-    color: white;
+
+.hero-image {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Highlights Section */
+.home-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #f9f9f9;
+}
+
+.highlight-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    color: #fff; /* text white by default */
     text-align: center;
-    padding: 12px;
+}
+
+/* Individual card colors (brand resonance) */
+.students-card {
+    background: #007bff; /* brand blue */
+}
+
+    .students-card:hover {
+        background: #0056b3;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+.owners-card {
+    background: #ffd700; /* brand gold */
+    color: #0b1b33; /* dark text for contrast */
+}
+
+    .owners-card:hover {
+        background: #ffc107;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+.lessons-card {
+    background: #17a2b8; /* teal accent */
+}
+
+    .lessons-card:hover {
+        background: #138496;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+.quiz-card {
+    background: #28a745; /* green accent */
+}
+
+    .quiz-card:hover {
+        background: #218838;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+/* Card content */
+.card-content h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p,
+.card-content ul {
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 32px;
-}
-.hero-bg {
-    background: url('/images/hero-driving.jpg') center/cover no-repeat;
-    border-radius: 16px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.05);
-    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-    .hero-bg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(11,27,51,0.55); /* overlay for readability */
-        border-radius: 16px;
-    }
-
-.hero-left, .hero-right {
-    position: relative;
-    z-index: 1; /* ensures content sits above overlay */
+.icon-accent {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
-
-.app-footer {
-    background: #0b1b33;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 32px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .hero-bg {
-        flex-direction: column;
-        padding: 16px;
-        background-position: top;
-    }
-
-    .hero-title {
-        font-size: 1.6rem;
-        text-align: center;
-    }
-
-    .lead {
-        text-align: center;
-        font-size: 0.95rem;
-    }
-
-    .hero-actions {
-        margin-top: 16px;
-    }
-
-    .hero-right {
-        margin-top: 20px;
-    }
-}
-

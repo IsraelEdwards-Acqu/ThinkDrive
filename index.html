@@ -11,6 +11,10 @@
     <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
     <meta name="theme-color" content="#0b1b33" />
 
+    <!-- SEO -->
+    <meta name="description" content="ThinkDrive - Learn to drive with confidence. Accredited schools, easy registration, video lessons." />
+    <meta name="keywords" content="driving schools, Ghana, ThinkDrive, driving lessons, registration" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,41 +32,36 @@
     <link rel="stylesheet" href="/css/register.css" />
     <link rel="stylesheet" href="/css/quiz.css" />
     <link rel="stylesheet" href="/css/schools.css" />
-    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="stylesheet" href="/css/mobile.css" />
+    <link rel="stylesheet" href="/css/shorts.css" />
 </head>
 <body>
-    <!-- Branded ThinkDrive Loader -->
-    <div id="loader" class="thinkdrive-loader">
-        <div class="loader-graphic">
-            <div class="ring" style="--i:0"></div>
-            <div class="ring" style="--i:1"></div>
-            <div class="td-logo">th!nk<br>drive</div>
-        </div>
-        <div class="loader-message">Loading ThinkDrive…</div>
-    </div>
-
-    <!-- Blazor mount point -->
+    <div id="loader" class="thinkdrive-loader"></div>
     <div id="app">Loading...</div>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <!-- Supabase SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Local Interop Scripts -->
-    <script src="js/supabaseInterop.js"></script>
-    <script src="js/videoInterop.js"></script>
-    <script src="js/confettiInterop.js"></script>
-    <script src="js/mapInterop.js"></script>
-    <script src="js/appLoader.js"></script>
-    <script src="js/storageInterop.js"></script>
+    <!-- Unified Interop -->
+    <script src="js/thinkdriveInterop.js"></script>
+    <script src="js/quizEffects.js"></script>
 
     <!-- Supabase Config -->
     <script>
-        // Replace with your actual Supabase project URL and anon key
-        const supabaseUrl = "https://duocrvjmpeovvsaeseek.supabase.co";
-        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR1b2NydmptcGVvdnZzYWVzZWVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MTg0ODIsImV4cCI6MjA3Mjk5NDQ4Mn0.fCPXA5H0XwV97AIdO0Ewn1xnruP_HssInwjY9Oq9iOs";
+        const supabaseUrl = "https://imdvnedpgeuegiwqjlwp.supabase.co";
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZHZuZWRwZ2V1ZWdpd3FqbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NTk1MTgsImV4cCI6MjA3OTAzNTUxOH0.oTHPLF0YnY1ET9VIiPfjdYsY-7oxnwuy5-L6ObSI1YA"
+        window.supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-        // Initialize Supabase and inject into storageInterop
-        window.supabaseInterop.init(supabaseUrl, supabaseAnonKey);
+        if (window.supabaseInterop?.init) {
+            window.supabaseInterop.init(supabaseUrl, supabaseAnonKey);
+        }
     </script>
 
     <!-- Dev-only: Unregister stale service workers -->
@@ -101,20 +100,6 @@
                 previewEl.style.display = "none";
             }
         }
-    </script>
-
-    <!-- Loader fade-out helper -->
-    <script>
-        window.appLoader = {
-            hide: function () {
-                const loader = document.getElementById("loader");
-                if (loader) {
-                    loader.style.transition = "opacity 0.6s ease";
-                    loader.style.opacity = "0";
-                    setTimeout(() => loader.remove(), 600);
-                }
-            }
-        };
     </script>
 
     <!-- Blazor Runtime -->

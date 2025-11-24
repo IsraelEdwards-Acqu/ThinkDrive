@@ -4,6 +4,7 @@
     padding: 0 16px;
 }
 
+/* Filters */
 .videos-filters {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -11,11 +12,14 @@
     max-width: 1200px;
     margin: 0 auto 24px;
     padding: 0 16px;
+    border-radius: 16px; /* ✅ rounded filter card */
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .search-input, .sort-dropdown {
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 12px 16px;
+    border-radius: 12px; /* ✅ more rounded */
     border: 1px solid #ccc;
     font-size: 1rem;
     width: 100%;
@@ -28,6 +32,7 @@
         outline: none;
     }
 
+/* Category buttons */
 .category-buttons {
     display: flex;
     gap: 8px;
@@ -35,67 +40,48 @@
 }
 
 .category-btn {
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 8px 14px;
+    border-radius: 12px; /* ✅ pill shape */
     border: 1px solid #ccc;
     background: #f8f9fa;
     cursor: pointer;
     font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
     .category-btn:hover {
         background: #e2e6ea;
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .category-btn.active {
-        background: linear-gradient(270deg, #4facfe, #00f2fe);
+        background: linear-gradient(270deg, #007bff, #ffd700); /* ✅ brand blue→gold */
         color: #fff;
-        border-color: #4facfe;
+        border-color: #007bff;
     }
 
-.videos-loading {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-}
-
+/* Loading skeleton */
 .skeleton-card {
     height: 220px;
     background: #eee;
-    border-radius: 16px;
+    border-radius: 20px; /* ✅ smoother */
     animation: pulse 1.5s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        background-color: #eee;
-    }
-
-    50% {
-        background-color: #f5f5f5;
-    }
-
-    100% {
-        background-color: #eee;
-    }
-}
-
+/* Alerts */
 .alert-warning {
     max-width: 800px;
     margin: 32px auto;
     padding: 16px;
     background: #fff3cd;
     border: 1px solid #ffeeba;
-    border-radius: 12px;
+    border-radius: 16px; /* ✅ rounded */
     color: #856404;
     font-weight: 500;
 }
 
+/* Video grid */
 .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -105,36 +91,42 @@
     padding: 0 16px;
 }
 
+/* Video card */
 .video-card {
     background: #fff;
-    padding: 12px;
-    border-radius: 16px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 14px;
+    border-radius: 20px; /* ✅ more rounded */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
 }
 
     .video-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     }
 
+/* Video wrapper */
 .video-wrapper {
     position: relative;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 video {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 16px;
     display: block;
 }
 
+/* Overlay */
 .video-overlay {
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .video-title {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: #0b1b33;
 }
 
@@ -144,37 +136,48 @@ video {
     margin-top: 4px;
 }
 
+/* Footer */
 .video-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8px;
-    font-size: 0.85rem;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
 .likes {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .like-btn {
-    background: transparent;
+    background: #007bff;
     border: none;
     font-size: 1rem;
     cursor: pointer;
-    color: #007bff;
-    transition: transform 0.2s ease;
+    color: #fff;
+    border-radius: 50%; /* ✅ circular */
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
     .like-btn:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
+        background: #0056b3;
     }
 
 .video-category {
     font-size: 0.85rem;
-    color: #666;
-    font-weight: 500;
+    color: #0b1b33;
+    font-weight: 600;
+    background: #ffd700; /* ✅ gold pill */
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
 /* ========================= */
@@ -202,11 +205,11 @@ video {
     }
 
     .video-card {
-        padding: 10px;
+        padding: 12px;
     }
 
     .video-title {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .video-meta {
@@ -215,7 +218,7 @@ video {
 
     .video-footer {
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
         align-items: flex-start;
     }
 

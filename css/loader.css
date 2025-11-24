@@ -2,124 +2,43 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom right, #ff4f5e, #f9c846, #00bfa6, #9b59b6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #0b1b33 url("images/ThinkDrive.gif") center center no-repeat;
+    background-size: cover;
+    display: block; /* force visible for test */
     z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    visibility: visible;
 }
 
-    .thinkdrive-loader.hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
 
-.loader-graphic {
+/* Overlay content sits above GIF */
+.loader-overlay {
     position: relative;
-    width: 140px;
-    height: 140px;
-}
-
-.ring {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 6px solid transparent;
-    border-top-color: #ff4f5e;
-    border-right-color: #f9c846;
-    border-bottom-color: #00bfa6;
-    border-left-color: #9b59b6;
-    border-radius: 50%;
-    animation: spin 1.2s linear infinite;
-}
-
-    .ring:nth-child(2) {
-        animation-delay: -0.6s;
-        opacity: 0.6;
-    }
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.td-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.8rem;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
+    z-index: 2;
     text-align: center;
-    line-height: 1.2;
-    color: white;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    animation: fadeIn 0.8s ease forwards;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin-top: auto;
+    margin-bottom: 40px;
 }
 
 .loader-message {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    animation: fadeInUp 1s ease forwards;
+    font-size: 1rem;
+    margin-bottom: 8px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
+.loader-progress {
+    width: 200px;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ========================= */
-/* Mobile Responsive Styles  */
-/* ========================= */
-@media (max-width: 768px) {
-    .loader-graphic {
-        width: 100px;
-        height: 100px;
-    }
-
-    .td-logo {
-        font-size: 1.4rem;
-    }
-
-    .loader-message {
-        font-size: 0.95rem;
-        margin-top: 16px;
-        text-align: center;
-        padding: 0 12px;
-    }
+.loader-bar {
+    height: 100%;
+    width: 0%;
+    background: #ffd700;
+    transition: width 0.3s ease;
 }
