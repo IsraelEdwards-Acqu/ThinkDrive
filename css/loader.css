@@ -4,12 +4,14 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #0b1b33 url("images/ThinkDrive.gif") center center no-repeat;
-    background-size: cover;
-    display: block; /* force visible for test */
+    background: #0b1b33 url("/images/ThinkDrive.gif") center center no-repeat; /* ✅ leading slash */
+    background-size: contain; /* keep GIF proportions */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     z-index: 9999;
 }
-
 
 /* Overlay content sits above GIF */
 .loader-overlay {
@@ -18,7 +20,6 @@
     text-align: center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    margin-top: auto;
     margin-bottom: 40px;
 }
 
@@ -42,3 +43,12 @@
     background: #ffd700;
     transition: width 0.3s ease;
 }
+.thinkdrive-loader {
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+    .thinkdrive-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }

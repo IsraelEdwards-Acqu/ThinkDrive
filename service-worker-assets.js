@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "Tj1fM7n+",
+  "version": "LYRcKMgs",
   "assets": [
     {
       "hash": "sha256-SrX+Bbcizh75L5tLmcr+J401S8ACtG/nRW8oj+Cjsg0=",
@@ -526,15 +526,15 @@ self.assetsManifest = {
       "url": "_framework/System.t4d4s3f398.wasm"
     },
     {
-      "hash": "sha256-FOwafCNZdWLtkF8xMzQuDsb1+fi4czB3Fi6BPmWSQfw=",
-      "url": "_framework/ThinkDrive.c0m2wyl8jx.wasm"
+      "hash": "sha256-2YWHzWWpzaV32dBrM6Rr+Ws2U3KQ07JPv4A9osF5+k4=",
+      "url": "_framework/ThinkDrive.9o70nund74.wasm"
     },
     {
       "hash": "sha256-6BUeDh+wN+tE97n/xZ5FpCYyaVYitXH44JLzRcssrz8=",
       "url": "_framework/Websocket.Client.sntjl98ana.wasm"
     },
     {
-      "hash": "sha256-GOREr1pDHrhLD/Ko5bTjCwC6pJYmuUCLRD2teATj+kY=",
+      "hash": "sha256-e2TsuXZ+jWjxi57omEq8lki4UrpdPc2LqN2xEbXCe3s=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -582,12 +582,16 @@ self.assetsManifest = {
       "url": "css/home.css"
     },
     {
-      "hash": "sha256-cYeKM6mVBGqjnVewdGZ3y+SNhyu66mbdq4d9hEY9dR0=",
+      "hash": "sha256-02/o3jp5RbdlPHQVSHVW7IyQm61w/aIzNKjnIsTUDws=",
       "url": "css/layout.css"
     },
     {
-      "hash": "sha256-rSDGkpU70SqSOs1JWRsMp4r74VKAhV3Su02JqiQL5mI=",
+      "hash": "sha256-i9vqFhUjBjdpPwGaFXNpwjTIt0K01HCxgrfBUxFjp9k=",
       "url": "css/loader.css"
+    },
+    {
+      "hash": "sha256-HkKu2wA0h0H1xKG3tf8T6RoodUl8JIih74FbkdMG+7c=",
+      "url": "css/loginforall.css"
     },
     {
       "hash": "sha256-z2m4VHOtsSvCwSbAYxmIZQaXrwICsM4NBBZHVf/Pads=",
@@ -610,7 +614,7 @@ self.assetsManifest = {
       "url": "css/schools.css"
     },
     {
-      "hash": "sha256-EBGzxWWq214yHktnuQM+JmW/3sUDpVL/VXwNnIcQLgc=",
+      "hash": "sha256-nIEUjPSQG16/Ge8mFuZU22V3Rzvnnq6ZqadEk6QKAGM=",
       "url": "css/shorts.css"
     },
     {
@@ -638,7 +642,7 @@ self.assetsManifest = {
       "url": "images/heroImages.png"
     },
     {
-      "hash": "sha256-jHkk4WU0mZmze95JhYYxw58KwAuYn6gAMrJHa2AM65w=",
+      "hash": "sha256-cxbcVBRXXpIEe8ysUwyk334Y0WEdvhv4wTPMJyx1IRs=",
       "url": "index.html"
     },
     {
@@ -646,7 +650,7 @@ self.assetsManifest = {
       "url": "js/quizEffects.js"
     },
     {
-      "hash": "sha256-tcbLczFOl/mY7+r7r1zUWKP16urRHu8NV9sqQ8ZarZA=",
+      "hash": "sha256-mKpu7K5i0VvbyZTDf/OnR0dVDlQdAJBEXKSGWfZIwkA=",
       "url": "js/thinkdriveInterop.js"
     },
     {

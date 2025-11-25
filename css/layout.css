@@ -10,15 +10,15 @@
 .main-content {
     flex: 1; /* pushes footer down */
     max-width: 1200px;
-    margin: 24px auto;
-    padding: 0 16px;
+    margin: 32px auto; /* more breathing space */
+    padding: 0 20px;
 }
 
 /* Header */
 .app-header {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem; /* more padding */
     background: #fff;
     border-bottom: 1px solid #eee;
     position: sticky;
@@ -27,14 +27,14 @@
 }
 
 .header-left .logo {
-    height: 32px;
-    margin-right: 8px;
+    height: 36px; /* slightly larger logo */
+    margin-right: 10px;
 }
 
 .brand {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #0b1b33;
 }
 
@@ -42,7 +42,7 @@
 .app-footer-nav {
     background: #fff; /* clean white footer */
     border-top: 1px solid #eee;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0; /* slimmer footer */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -65,17 +65,17 @@
     border: none;
     color: #0b1b33;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.75rem; /* smaller text */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.25rem;
+    padding: 0.35rem 0.5rem; /* more space around controls */
     cursor: pointer;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
     .nav-btn i {
-        font-size: 1.2rem;
+        font-size: 1rem; /* smaller icons */
         margin-bottom: 2px;
     }
 
@@ -92,6 +92,14 @@
 /* Responsive behavior */
 @media (max-width: 768px) {
     .main-content {
-        padding-bottom: 70px; /* prevent overlap with fixed footer */
+        padding-bottom: 80px; /* prevent overlap with fixed footer */
     }
+
+    .nav-btn {
+        font-size: 0.7rem;
+    }
+
+        .nav-btn i {
+            font-size: 0.9rem;
+        }
 }

@@ -34,10 +34,100 @@
     <link rel="stylesheet" href="/css/schools.css" />
     <link rel="stylesheet" href="/css/mobile.css" />
     <link rel="stylesheet" href="/css/shorts.css" />
+    <link rel="stylesheet" href="/css/loginforall.css" />
+
+    <!-- Preload GIF for reliability -->
+    <link rel="preload" as="image" href="/images/ThinkDrive.gif" />
+
+    <!-- Inline loader CSS (ensures visible even if external CSS is delayed) -->
+    <style>
+        .thinkdrive-loader {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0b1b33 url("/images/ThinkDrive.gif") center center no-repeat;
+            background-size: contain; /* keep GIF proportions */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 300ms ease;
+        }
+
+            .thinkdrive-loader.hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+        .loader-overlay {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 40px;
+        }
+
+        .loader-message {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loader-bar {
+            height: 100%;
+            width: 0%;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+        /* No-JS fallback */
+        noscript .thinkdrive-loader {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
-    <div id="loader" class="thinkdrive-loader"></div>
+    <div id="thinkdrive-loader" class="thinkdrive-loader">
+        <div class="loader-overlay">
+            <div class="loader-message">Loading ThinkDrive...</div>
+            <div class="loader-progress">
+                <div class="loader-bar" id="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <div id="app">Loading...</div>
+
+    <script>
+        // Progress bar simulation (keeps users informed during WASM boot)
+        (function () {
+            let progress = 0;
+            const bar = document.getElementById("loader-bar");
+            const step = () => {
+                progress = Math.min(progress + 8, 92); // cap before final hide
+                bar.style.width = progress + "%";
+            };
+            const interval = setInterval(step, 250);
+            window.addEventListener("load", () => {
+                clearInterval(interval);
+                bar.style.width = "100%";
+                const loader = document.getElementById("thinkdrive-loader");
+                loader.classList.add("hidden");
+                setTimeout(() => loader.style.display = "none", 350);
+            });
+        })();
+    </script>
 
     <!-- External Libraries -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -56,9 +146,8 @@
     <!-- Supabase Config -->
     <script>
         const supabaseUrl = "https://imdvnedpgeuegiwqjlwp.supabase.co";
-        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZHZuZWRwZ2V1ZWdpd3FqbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NTk1MTgsImV4cCI6MjA3OTAzNTUxOH0.oTHPLF0YnY1ET9VIiPfjdYsY-7oxnwuy5-L6ObSI1YA"
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZHZuZWRwZ2V1ZWdpd3FqbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NTk1MTgsImV4cCI6MjA3OTAzNTUxOH0.oTHPLF0YnY1ET9VIiPfjdYsY-7oxnwuy5-L6ObSI1YA";
         window.supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
-
         if (window.supabaseInterop?.init) {
             window.supabaseInterop.init(supabaseUrl, supabaseAnonKey);
         }

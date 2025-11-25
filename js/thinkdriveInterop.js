@@ -474,9 +474,8 @@ window.supabaseInterop = window.supabaseInterop || {};
         }
     };
 })();
-
 // =======================
-// Video Interop (Autoplay, Controls)
+// Video Interop (Autoplay, Controls, Helpers)
 // =======================
 window.videoInterop = {
     observer: null,
@@ -491,7 +490,7 @@ window.videoInterop = {
             this.observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const video = entry.target;
-                    if (!video) return;
+                    if (!(video instanceof HTMLVideoElement)) return;
 
                     if (entry.intersectionRatio >= 0.5) {
                         if (video.paused) {
@@ -506,10 +505,12 @@ window.videoInterop = {
             }, options);
 
             document.querySelectorAll(selector).forEach(v => {
-                v.setAttribute("playsinline", "");
-                v.setAttribute("webkit-playsinline", "");
-                v.muted = true;
-                this.observer.observe(v);
+                if (v instanceof HTMLVideoElement) {
+                    v.setAttribute("playsinline", "");
+                    v.setAttribute("webkit-playsinline", "");
+                    v.muted = true;
+                    this.observer.observe(v);
+                }
             });
         } catch (e) {
             console.error("[videoInterop] initAutoplay error:", e);
@@ -519,7 +520,7 @@ window.videoInterop = {
     // Explicit play
     play: function (id) {
         const video = document.getElementById(id);
-        if (video) {
+        if (video instanceof HTMLVideoElement) {
             video.muted = true;
             const p = video.play();
             if (p && p.catch) p.catch(err => console.warn("[videoInterop] play error:", err));
@@ -529,13 +530,13 @@ window.videoInterop = {
     // Explicit pause
     pause: function (id) {
         const video = document.getElementById(id);
-        if (video && !video.paused) video.pause();
+        if (video instanceof HTMLVideoElement && !video.paused) video.pause();
     },
 
     // Track progress events (optional)
     attachProgress: function (id, callback) {
         const video = document.getElementById(id);
-        if (video && typeof callback === "function") {
+        if (video instanceof HTMLVideoElement && typeof callback === "function") {
             video.addEventListener("timeupdate", () => {
                 const pct = video.duration ? (video.currentTime / video.duration) * 100 : 0;
                 try { callback(pct); } catch { }
@@ -549,6 +550,59 @@ window.videoInterop = {
             this.observer.disconnect();
             this.observer = null;
         }
+    },
+
+    // ✅ Duration helper
+    getDuration: async function (url) {
+        return new Promise((resolve, reject) => {
+            try {
+                const video = document.createElement("video");
+                video.src = url;
+                video.preload = "metadata";
+                video.onloadedmetadata = () => {
+                    resolve(video.duration); // duration in seconds
+                };
+                video.onerror = () => reject("Unable to load video metadata.");
+            } catch (err) {
+                reject(err);
+            }
+        });
+    },
+
+    // ✅ Split helper (stub)
+    splitVideo: async function (url, maxLengthSeconds, preferredLengthSeconds) {
+        // ⚠️ Stub: In production, use FFmpeg WASM or server-side processing.
+        return new Promise((resolve) => {
+            const segments = [];
+            const totalDuration = 120; // fake duration for demo
+            let current = 0;
+            while (current < totalDuration) {
+                const end = Math.min(current + preferredLengthSeconds, totalDuration);
+                segments.push(url + `#t=${current},${end}`); // simulate segment
+                current = end;
+            }
+            resolve(segments);
+        });
+    }
+};
+
+// =======================
+// Loader + DOM helpers
+// =======================
+window.appLoader = {
+    hide: function () {
+        const loader = document.getElementById("thinkdrive-loader");
+        if (loader) {
+            loader.classList.add("hidden");
+            setTimeout(() => loader.style.display = "none", 350);
+        }
+    }
+};
+
+window.domInterop = {
+    clickById: function (id) {
+        const el = document.getElementById(id);
+        if (el) el.click();
     }
 };
 
