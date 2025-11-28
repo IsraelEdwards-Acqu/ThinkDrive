@@ -33,11 +33,10 @@
     <link rel="stylesheet" href="/css/quiz.css" />
     <link rel="stylesheet" href="/css/schools.css" />
     <link rel="stylesheet" href="/css/mobile.css" />
-    <link rel="stylesheet" href="/css/shorts.css" />
     <link rel="stylesheet" href="/css/loginforall.css" />
 
     <!-- Preload GIF for reliability -->
-    <link rel="preload" as="image" href="/images/ThinkDrive.gif" />
+    <link rel="preload" as="image" href="/images/thinkdrive.gif" />
 
     <!-- Inline loader CSS (ensures visible even if external CSS is delayed) -->
     <style>
@@ -46,7 +45,7 @@
             inset: 0;
             width: 100vw;
             height: 100vh;
-            background: #0b1b33 url("/images/ThinkDrive.gif") center center no-repeat;
+            background: #0b1b33 url("/images/thinkdrive.gif") center center no-repeat;
             background-size: contain; /* keep GIF proportions */
             display: flex;
             flex-direction: column;
@@ -98,16 +97,16 @@
     </style>
 </head>
 <body>
-    <div id="thinkdrive-loader" class="thinkdrive-loader">
-        <div class="loader-overlay">
-            <div class="loader-message">Loading ThinkDrive...</div>
-            <div class="loader-progress">
-                <div class="loader-bar" id="loader-bar"></div>
+    <div id="app">
+        <div id="thinkdrive-loader" class="thinkdrive-loader">
+            <div class="loader-overlay">
+                <div class="loader-message">Loading ThinkDrive...</div>
+                <div class="loader-progress">
+                    <div class="loader-bar" id="loader-bar"></div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="app">Loading...</div>
 
     <script>
         // Progress bar simulation (keeps users informed during WASM boot)
@@ -140,7 +139,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- Unified Interop -->
-    <script src="js/thinkdriveInterop.js"></script>
+    <!--<script src="js/thinkdriveInterop.js"></script>-->
     <script src="js/quizEffects.js"></script>
 
     <!-- Supabase Config -->
@@ -193,5 +192,6 @@
 
     <!-- Blazor Runtime -->
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/thinkdriveInterop.js"></script>
 </body>
 </html>

@@ -164,7 +164,7 @@ window.mapInterop = {
                     const city = s.city ?? s.City ?? "";
 
                     const icon = L.icon({
-                        iconUrl: "/images/school-marker.png",
+                        iconUrl: "/images/heroImages.png",
                         iconSize: [32, 32],
                         iconAnchor: [16, 32],
                         popupAnchor: [0, -28]
@@ -191,7 +191,6 @@ window.mapInterop = {
         } catch (e) { console.error("[mapInterop] error:", e); }
     }
 };
-
 // =======================
 // Shorts (TikTok-style)
 // =======================
@@ -240,6 +239,15 @@ window.shortsInterop = {
             });
         });
     },
+
+    // Safe comment toggle by ID
+    toggleCommentsById: function (id, open) {
+        const panel = document.getElementById(id);
+        if (!panel) return; // prevent null crash
+        if (open) panel.classList.add("open");
+        else panel.classList.remove("open");
+    },
+
     enableComments: function () {
         const feed = document.getElementById("shortsFeed");
         if (!feed) return;
@@ -247,15 +255,28 @@ window.shortsInterop = {
         feed.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
         feed.addEventListener("touchend", e => {
             let endX = e.changedTouches[0].clientX;
+            // Use a specific overlay ID instead of generic querySelector
             const panel = document.querySelector(".comment-overlay");
             if (!panel) return;
             if (startX - endX > 80) panel.classList.add("open");
             if (endX - startX > 80) panel.classList.remove("open");
         }, { passive: true });
+    },
+
+    // Scroll helpers for Blazor interop
+    scrollUp: function () {
+        const feed = document.getElementById("shortsFeed");
+        if (!feed) return;
+        feed.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
+    },
+    scrollDown: function () {
+        const feed = document.getElementById("shortsFeed");
+        if (!feed) return;
+        feed.scrollBy({ top: window.innerHeight, behavior: "smooth" });
     }
 };
 
-// Global viewport play/pause for .short-video (as backup)
+// Global viewport play/pause for .short-video (backup)
 document.addEventListener("scroll", () => {
     const videos = document.querySelectorAll(".short-video");
     videos.forEach(v => {
@@ -269,6 +290,74 @@ document.addEventListener("scroll", () => {
         }
     });
 }, { passive: true });
+
+// Optional: keyboard navigation for desktop
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowUp") {
+        window.shortsInterop.scrollUp();
+    } else if (e.key === "ArrowDown") {
+        window.shortsInterop.scrollDown();
+    }
+});
+// =======================
+// Celebration Interop
+// =======================
+window.celebrationInterop = {
+    confetti: function () {
+        // Create a canvas overlay
+        const canvas = document.createElement("canvas");
+        canvas.className = "confetti-canvas";
+        canvas.style.position = "fixed";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.pointerEvents = "none";
+        canvas.style.zIndex = "9999";
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext("2d");
+        const pieces = [];
+        const colors = ["#ff4d4d", "#ffd633", "#4dff4d", "#33ccff", "#ff33cc"];
+
+        for (let i = 0; i < 100; i++) {
+            pieces.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight - window.innerHeight,
+                w: 8,
+                h: 14,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                speed: Math.random() * 3 + 2,
+                rotation: Math.random() * 360
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach(p => {
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.rotation * Math.PI) / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                ctx.restore();
+
+                p.y += p.speed;
+                if (p.y > window.innerHeight) p.y = -20;
+                p.rotation += p.speed;
+            });
+            requestAnimationFrame(draw);
+        }
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        draw();
+
+        // Remove after 2 seconds
+        setTimeout(() => canvas.remove(), 2000);
+    }
+};
+
 // =======================
 // Supabase Auth Interop (Dev Mode)
 // =======================
@@ -392,6 +481,7 @@ window.supabaseAuthInterop = {
 // Storage (Supabase) - Dev Mode
 // =======================
 window.storageInterop = {
+    // General upload (avatars, photos, etc.)
     uploadFileFromInput: async function (inputId, bucket = "files") {
         try {
             const input = document.getElementById(inputId);
@@ -407,31 +497,53 @@ window.storageInterop = {
             const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
             const filePath = `${Date.now()}_${safeName}`;
 
-            if (!window.supabase) {
-                console.error("[storageInterop] Supabase SDK not loaded");
-                return null;
-            }
-
-            // ✅ Upload without Authorization header (public bucket)
             const { data, error } = await supabase.storage
                 .from(bucket)
-                .upload(filePath, file, {
-                    cacheControl: "3600",
-                    upsert: true
-                });
+                .upload(filePath, file, { cacheControl: "3600", upsert: true });
 
             if (error) {
                 console.error("[storageInterop] Upload failed:", error.message);
                 return null;
             }
 
-            // ✅ Get public URL
             const { data: urlData } = supabase.storage.from(bucket).getPublicUrl(filePath);
             return urlData?.publicUrl ?? null;
         } catch (e) {
             console.error("[storageInterop] upload error:", e);
             return null;
         }
+    },
+
+    // Shorts‑specific upload (returns array of videos with metadata)
+    uploadShortVideo: async function (inputId, bucket = "shorts") {
+        const input = document.getElementById(inputId);
+        if (!input?.files?.length) return [];
+
+        const files = Array.from(input.files);
+        const uploaded = [];
+
+        for (const file of files) {
+            const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+            const filePath = `videos/${Date.now()}_${safeName}`;
+
+            const { data, error } = await supabase.storage
+                .from(bucket)
+                .upload(filePath, file, { cacheControl: "3600", upsert: false });
+
+            if (error) {
+                console.error("[storageInterop] Upload failed:", error.message);
+                continue;
+            }
+
+            const { data: urlData } = supabase.storage.from(bucket).getPublicUrl(filePath);
+            uploaded.push({
+                Url: urlData?.publicUrl ?? "",
+                OriginalTitle: file.name
+            });
+        }
+
+        input.value = ""; // reset input
+        return uploaded;
     }
 };
 // =======================
@@ -605,4 +717,109 @@ window.domInterop = {
         if (el) el.click();
     }
 };
+// =======================
+// DOM helpers
+// =======================
+window.domInterop = {
+    clickById: function (id) {
+        const el = document.getElementById(id);
+        if (el) el.click();
+    }
+};
+
+// =======================
+// Storage (Supabase) - Shorts
+// =======================
+window.storageInterop = window.storageInterop || {};
+
+window.storageInterop.uploadShortVideo = async function (inputId, bucket = "shorts") {
+    const input = document.getElementById(inputId);
+    if (!input?.files?.length) return [];
+
+    const files = Array.from(input.files);
+    const uploaded = [];
+
+    for (const file of files) {
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+        const filePath = `videos/${Date.now()}_${safeName}`;
+
+        const { data, error } = await supabase.storage
+            .from(bucket)
+            .upload(filePath, file, { cacheControl: "3600", upsert: false });
+
+        if (error) {
+            console.error("[storageInterop] Upload failed:", error.message);
+            continue;
+        }
+
+        const { data: urlData } = supabase.storage.from(bucket).getPublicUrl(filePath);
+        uploaded.push({
+            Url: urlData?.publicUrl ?? "",
+            OriginalTitle: file.name
+        });
+    }
+
+    input.value = ""; // reset input
+    return uploaded;
+};
+
+window.storageInterop.uploadPhoto = async function (inputId, bucket = "photos") {
+    const input = document.getElementById(inputId);
+    if (!input?.files?.length) return [];
+
+    const files = Array.from(input.files);
+    const urls = [];
+
+    for (const file of files) {
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+        const filePath = `images/${Date.now()}_${safeName}`;
+
+        const { data, error } = await supabase.storage
+            .from(bucket)
+            .upload(filePath, file, { cacheControl: "3600", upsert: false });
+
+        if (error) {
+            console.error("[storageInterop] Photo upload failed:", error.message);
+            continue;
+        }
+
+        const { data: urlData } = supabase.storage.from(bucket).getPublicUrl(filePath);
+        urls.push(urlData?.publicUrl ?? "");
+    }
+
+    input.value = "";
+    return urls;
+};
+
+// =======================
+// Toast helper
+// =======================
+window.toastInterop = {
+    show: function (message) {
+        // Replace with your styled toast UI
+        alert(message);
+    }
+};
+
+// =======================
+// Shorts helpers
+// =======================
+window.shortsInterop = window.shortsInterop || {};
+window.shortsInterop.toggleCommentsById = function (id, open) {
+    const panel = document.getElementById(id);
+    if (!panel) return;
+    if (open) panel.classList.add("open");
+    else panel.classList.remove("open");
+};
+window.domInterop = {
+    clickById: function (id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.click();
+        } else {
+            console.warn("[domInterop] Element not found:", id);
+        }
+    }
+};
+
 

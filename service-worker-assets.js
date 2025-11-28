@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "LYRcKMgs",
+  "version": "1LOlpUD/",
   "assets": [
     {
       "hash": "sha256-SrX+Bbcizh75L5tLmcr+J401S8ACtG/nRW8oj+Cjsg0=",
@@ -158,8 +158,8 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.AspNetCore.Components.Forms.4pi680o7gk.wasm"
     },
     {
-      "hash": "sha256-0LWgv6VW7UQPMwsnA3vdbUnXBbn1ntDMOi4+DTIOYCw=",
-      "url": "_framework/Microsoft.AspNetCore.Components.Web.oa930hg6ra.wasm"
+      "hash": "sha256-Nvld3YW4WL5Wy2ONyhnYhc1rupcpU6ryirEMt05qb8A=",
+      "url": "_framework/Microsoft.AspNetCore.Components.Web.q37dc28tuy.wasm"
     },
     {
       "hash": "sha256-5IkQc+qKEQ4lukugBoWqP/0CEZEgoAqHCDm3U8+0KbA=",
@@ -526,15 +526,15 @@ self.assetsManifest = {
       "url": "_framework/System.t4d4s3f398.wasm"
     },
     {
-      "hash": "sha256-2YWHzWWpzaV32dBrM6Rr+Ws2U3KQ07JPv4A9osF5+k4=",
-      "url": "_framework/ThinkDrive.9o70nund74.wasm"
+      "hash": "sha256-Te36eL9Cggj24fdEiv+PElsjjgtgU2rmcvQZmz2fmMc=",
+      "url": "_framework/ThinkDrive.zgtixj0b77.wasm"
     },
     {
       "hash": "sha256-6BUeDh+wN+tE97n/xZ5FpCYyaVYitXH44JLzRcssrz8=",
       "url": "_framework/Websocket.Client.sntjl98ana.wasm"
     },
     {
-      "hash": "sha256-e2TsuXZ+jWjxi57omEq8lki4UrpdPc2LqN2xEbXCe3s=",
+      "hash": "sha256-tLrSNd3BZNx+FLe8FvSaDfMSbvCLl52kNDL0nWmS0O0=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -614,10 +614,6 @@ self.assetsManifest = {
       "url": "css/schools.css"
     },
     {
-      "hash": "sha256-nIEUjPSQG16/Ge8mFuZU22V3Rzvnnq6ZqadEk6QKAGM=",
-      "url": "css/shorts.css"
-    },
-    {
       "hash": "sha256-CKoDGGD2iCgnD5O2+/jR4ADrdNrS6HmNca362m/R/0I=",
       "url": "css/videos.css"
     },
@@ -634,15 +630,19 @@ self.assetsManifest = {
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-6mCC0SPBIL30uKsvhtC81jNHHy5Xe+5zXrvvwW7MEKM=",
-      "url": "images/ThinkDrive.gif"
-    },
-    {
       "hash": "sha256-/f+FcW9kHPFAwwiy6gOw9tFyRFBPad1cXwazqNr7YjE=",
       "url": "images/heroImages.png"
     },
     {
-      "hash": "sha256-cxbcVBRXXpIEe8ysUwyk334Y0WEdvhv4wTPMJyx1IRs=",
+      "hash": "sha256-6mCC0SPBIL30uKsvhtC81jNHHy5Xe+5zXrvvwW7MEKM=",
+      "url": "images/thinkdrive.gif"
+    },
+    {
+      "hash": "sha256-AujcwkF3KohJTbhQ+h8L74ieVJ1SPgIEjcrDlLvaQH8=",
+      "url": "images/thinkdrive.mp4"
+    },
+    {
+      "hash": "sha256-cCyRIMbkCxNybcd2xWho5K8pH/KiiQwMtpdHj3puyVk=",
       "url": "index.html"
     },
     {
@@ -650,7 +650,7 @@ self.assetsManifest = {
       "url": "js/quizEffects.js"
     },
     {
-      "hash": "sha256-mKpu7K5i0VvbyZTDf/OnR0dVDlQdAJBEXKSGWfZIwkA=",
+      "hash": "sha256-pYp8vVCBD7Ivd+BHWd0+whTzYNptrDAbM8iG950E8B4=",
       "url": "js/thinkdriveInterop.js"
     },
     {
@@ -824,6 +824,14 @@ self.assetsManifest = {
     {
       "hash": "sha256-CIGs54PFnzj11xKDeLEDXFn6vQFbkXR/EpXwCJFpsVs=",
       "url": "sounds/level-up-47165.mp3"
+    },
+    {
+      "hash": "sha256-6mCC0SPBIL30uKsvhtC81jNHHy5Xe+5zXrvvwW7MEKM=",
+      "url": "videos/thinkdrive.gif"
+    },
+    {
+      "hash": "sha256-AujcwkF3KohJTbhQ+h8L74ieVJ1SPgIEjcrDlLvaQH8=",
+      "url": "videos/thinkdrive.mp4"
     }
   ]
 };
